@@ -1,0 +1,6 @@
+c:\users\user\documents\visual studio 2015\Projects\3part1exer\3part1exer\bin\Debug\3part1exer.exe.config
+c:\users\user\documents\visual studio 2015\Projects\3part1exer\3part1exer\bin\Debug\3part1exer.exe
+c:\users\user\documents\visual studio 2015\Projects\3part1exer\3part1exer\bin\Debug\3part1exer.pdb
+c:\users\user\documents\visual studio 2015\Projects\3part1exer\3part1exer\obj\Debug\3part1exer.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\3part1exer\3part1exer\obj\Debug\3part1exer.exe
+c:\users\user\documents\visual studio 2015\Projects\3part1exer\3part1exer\obj\Debug\3part1exer.pdb
