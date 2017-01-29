@@ -1,0 +1,6 @@
+c:\users\user\documents\visual studio 2015\Projects\file.max.min\file.max.min\bin\Debug\file.max.min.exe.config
+c:\users\user\documents\visual studio 2015\Projects\file.max.min\file.max.min\bin\Debug\file.max.min.exe
+c:\users\user\documents\visual studio 2015\Projects\file.max.min\file.max.min\bin\Debug\file.max.min.pdb
+c:\users\user\documents\visual studio 2015\Projects\file.max.min\file.max.min\obj\Debug\file.max.min.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\file.max.min\file.max.min\obj\Debug\file.max.min.exe
+c:\users\user\documents\visual studio 2015\Projects\file.max.min\file.max.min\obj\Debug\file.max.min.pdb
