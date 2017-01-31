@@ -1,0 +1,6 @@
+c:\users\user\documents\visual studio 2015\Projects\minprime\minprime\bin\Debug\minprime.exe.config
+c:\users\user\documents\visual studio 2015\Projects\minprime\minprime\bin\Debug\minprime.exe
+c:\users\user\documents\visual studio 2015\Projects\minprime\minprime\bin\Debug\minprime.pdb
+c:\users\user\documents\visual studio 2015\Projects\minprime\minprime\obj\Debug\minprime.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\minprime\minprime\obj\Debug\minprime.exe
+c:\users\user\documents\visual studio 2015\Projects\minprime\minprime\obj\Debug\minprime.pdb
