@@ -14,7 +14,7 @@ namespace lab2_2
             string s = sr.ReadLine();
             string[] arr = s.Split();// separate by spaces
             
-            int max = 0, k =arr.Length, min =0;
+            int max = 0, k =arr.Length, min =2147483640;
             for (int i=1; i<k; i++)
             {
                 int j = int.Parse(arr[i]);//converting into the integer each string in file
