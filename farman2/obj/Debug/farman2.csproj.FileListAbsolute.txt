@@ -1,0 +1,6 @@
+c:\users\user\documents\visual studio 2015\Projects\farman2\farman2\bin\Debug\farman2.exe.config
+c:\users\user\documents\visual studio 2015\Projects\farman2\farman2\bin\Debug\farman2.exe
+c:\users\user\documents\visual studio 2015\Projects\farman2\farman2\bin\Debug\farman2.pdb
+c:\users\user\documents\visual studio 2015\Projects\farman2\farman2\obj\Debug\farman2.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\farman2\farman2\obj\Debug\farman2.exe
+c:\users\user\documents\visual studio 2015\Projects\farman2\farman2\obj\Debug\farman2.pdb
