@@ -4,73 +4,87 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics;
 
 namespace farman2
 {
     class Program
     {
-        static void process(DirectoryInfo d,int cur)
+        static void process(DirectoryInfo d,int cur)//the main function to display the files and directories
         {
-            FileSystemInfo[] df = d.GetFileSystemInfos();
-              
-            for (int i = 0; i < df.Length; i++)
+            Console.Clear();//when the function is runned again console should be cleared, to avoid continiuos output
+            FileSystemInfo[] df = d.GetFileSystemInfos();//array of all files and directories in "d"
+            for (int i = 0; i < df.Length; i++)//runs through all things in folder
             {
-                Console.WriteLine(df[i].Name);
-                if (cur == i)
+                if (cur == i)//if we are at current place
                 {
-                    Console.WriteLine("*****");
+                    Console.BackgroundColor = ConsoleColor.Blue;//make it blue
                 }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Black;//otherwise it should become black 
+                }
+
+                if (df[i].GetType() == typeof(DirectoryInfo))//to distinguish between directory and file
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;//green is folders
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;//files are darkgrey
+                }
+
+                Console.WriteLine(df[i].Name);//to display array
+             
             }
         }
 
-
         static void Main(string[] args)
         {
-            DirectoryInfo d = new DirectoryInfo(@"C:\file");
-            int cur = 0;
-                      
+            DirectoryInfo d = new DirectoryInfo(@"C:\inme");//initialising variable "d"
+            int cur = 0;//shows our place like pointer through files
             while (true)
             {
-                FileSystemInfo[] df = d.GetFileSystemInfos();
-                int n = df.Length;
-                Console.Clear();
-                process (d, cur);
-                ConsoleKeyInfo pressedKey = Console.ReadKey();
-                if (pressedKey.Key == ConsoleKey.UpArrow)
+                process(d, cur);//сalling main function
+                
+                ConsoleKeyInfo pressedKey = Console.ReadKey();//variable for keeping data of pressed button
+                if (pressedKey.Key == ConsoleKey.UpArrow)//if UP is pressed
                 {
-                    if (cur > 0)
+                    if (cur > 0)//it curdor decreses only if the current place is greater than 0
                     {
-                        cur = cur - 1;
+                        cur=cur-1;//decrement
+                     
                     }
                 }
-               if (pressedKey.Key == ConsoleKey.DownArrow)
+               if (pressedKey.Key == ConsoleKey.DownArrow)//Down button is pressed
                 {
-                    if (cur < n)
+                    if (cur < d.GetFileSystemInfos().Length - 1)//again cursor cannot move abroad from max length of array
                     {
-                        cur = cur + 1;
+                        cur = cur + 1;//increment
+                       
                     }
                 }
-                if (pressedKey.Key == ConsoleKey.Escape)
+                if (pressedKey.Key == ConsoleKey.Escape)//escape button is pressed
                 {
-                    break;
+                    d = d.Parent;//changes path to previous path 
+                    cur = 0;
                 }
-                if (pressedKey.Key == ConsoleKey.UpArrow)
+                if (pressedKey.Key == ConsoleKey.Enter)//Enter button is pressed
                 {
-                    if (cur > 0)
+                    FileSystemInfo df = d.GetFileSystemInfos()[cur];
+                    if (df.GetType() == typeof(DirectoryInfo))//if it is file
                     {
-                        cur = cur - 1;
+                        d = new DirectoryInfo(df.FullName);//it changes it's path to current folder
+                        cur = 0;
+                    }
+                    else
+                    {
+                        Process.Start(df.FullName);//otherwise, open the file 
                     }
                 }
-                if (pressedKey.Key == ConsoleKey.UpArrow)
-                {
-                    if (cur > 0)
-                    {
-                        cur = cur - 1;
-                    }
-                }
+       
             }
                     Console.ReadKey();
-
         }
     }
 }
