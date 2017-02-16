@@ -4,3 +4,9 @@ c:\users\user\documents\visual studio 2015\Projects\LAB1_2student\LAB1_2student\
 c:\users\user\documents\visual studio 2015\Projects\LAB1_2student\LAB1_2student\obj\Debug\LAB1_2student.csprojResolveAssemblyReference.cache
 c:\users\user\documents\visual studio 2015\Projects\LAB1_2student\LAB1_2student\obj\Debug\LAB1_2student.exe
 c:\users\user\documents\visual studio 2015\Projects\LAB1_2student\LAB1_2student\obj\Debug\LAB1_2student.pdb
+C:\Users\user\labs\LAB1_2student\bin\Debug\LAB1_2student.exe.config
+C:\Users\user\labs\LAB1_2student\obj\Debug\LAB1_2student.exe
+C:\Users\user\labs\LAB1_2student\obj\Debug\LAB1_2student.pdb
+C:\Users\user\labs\LAB1_2student\bin\Debug\LAB1_2student.exe
+C:\Users\user\labs\LAB1_2student\bin\Debug\LAB1_2student.pdb
+C:\Users\user\labs\LAB1_2student\obj\Debug\LAB1_2student.csprojResolveAssemblyReference.cache

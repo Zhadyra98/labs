@@ -1,6 +1,0 @@
-c:\users\user\documents\visual studio 2015\Projects\List-Value-Types\List-Value-Types\bin\Debug\List-Value-Types.exe.config
-c:\users\user\documents\visual studio 2015\Projects\List-Value-Types\List-Value-Types\bin\Debug\List-Value-Types.exe
-c:\users\user\documents\visual studio 2015\Projects\List-Value-Types\List-Value-Types\bin\Debug\List-Value-Types.pdb
-c:\users\user\documents\visual studio 2015\Projects\List-Value-Types\List-Value-Types\obj\Debug\List-Value-Types.csprojResolveAssemblyReference.cache
-c:\users\user\documents\visual studio 2015\Projects\List-Value-Types\List-Value-Types\obj\Debug\List-Value-Types.exe
-c:\users\user\documents\visual studio 2015\Projects\List-Value-Types\List-Value-Types\obj\Debug\List-Value-Types.pdb

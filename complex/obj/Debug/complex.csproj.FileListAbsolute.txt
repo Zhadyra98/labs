@@ -4,3 +4,9 @@ c:\users\user\documents\visual studio 2015\Projects\complex\complex\bin\Debug\co
 c:\users\user\documents\visual studio 2015\Projects\complex\complex\obj\Debug\complex.csprojResolveAssemblyReference.cache
 c:\users\user\documents\visual studio 2015\Projects\complex\complex\obj\Debug\complex.exe
 c:\users\user\documents\visual studio 2015\Projects\complex\complex\obj\Debug\complex.pdb
+C:\Users\user\labs\complex\bin\Debug\complex.exe.config
+C:\Users\user\labs\complex\obj\Debug\complex.exe
+C:\Users\user\labs\complex\obj\Debug\complex.pdb
+C:\Users\user\labs\complex\obj\Debug\complex.csprojResolveAssemblyReference.cache
+C:\Users\user\labs\complex\bin\Debug\complex.exe
+C:\Users\user\labs\complex\bin\Debug\complex.pdb
