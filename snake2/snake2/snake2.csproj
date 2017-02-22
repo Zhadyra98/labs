@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B995CE1-ADB2-47C8-9999-7FCC326C9E01}</ProjectGuid>
+    <ProjectGuid>{E8D27DA7-D376-45F2-AFD5-F4885595EB7F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>snake2</RootNamespace>
@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="food.cs" />
+    <Compile Include="point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="snake.cs" />
+    <Compile Include="wall.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
