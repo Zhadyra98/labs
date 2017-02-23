@@ -15,5 +15,12 @@ namespace snake2
             this.x = _x;
             this.y = _y;
         }
+
+        public override bool Equals(object obj)
+        {
+            point o = obj as point;
+            if (this.x == o.x && this.y == o.y) return true;
+            return false;
+        }
     }
 }
