@@ -13,6 +13,7 @@ namespace snake2
         public List<point> body;
         public ConsoleColor color;
         public int cnt;
+        public int f;
 
         public snake()
         {
@@ -34,15 +35,15 @@ namespace snake2
             body[0].x += dx;
             body[0].y += dy;
         
-            if (body[0].x > Console.WindowWidth - 5)
+            if (body[0].x > Console.WindowWidth - 2)
                 body[0].x = 1;
             if (body[0].x < 1)
-                body[0].x = Console.WindowWidth - 5;
+                body[0].x = Console.WindowWidth - 2;
 
-            if (body[0].y > Console.WindowHeight)
-                body[0].y = 1;
+            if (body[0].y > Console.WindowHeight-2)
+                body[0].y = 0;
             if (body[0].y < 1)
-                body[0].y = Console.WindowHeight;
+                body[0].y = Console.WindowHeight-2;
         }
 
         public void draw()
@@ -62,6 +63,7 @@ namespace snake2
             {
               
                 body.Add(food.plc);
+                f++;
                 return true;
             }
             return false;

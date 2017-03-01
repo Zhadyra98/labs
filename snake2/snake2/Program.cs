@@ -14,6 +14,7 @@ namespace snake2
             snake snake = new snake();
             wall wall = new wall();
             food food = new food();
+            int pr = 0;
             int f = 0;
             
 
@@ -23,29 +24,85 @@ namespace snake2
                     snake.draw();
                     wall.draw();
                     food.draw();
+                
 
                 ConsoleKeyInfo prkey = Console.ReadKey();
 
                     if (prkey.Key == ConsoleKey.UpArrow)
                     {
-                        snake.move(0, -1);
-                    }
-                    if (prkey.Key == ConsoleKey.DownArrow)
+                        if(pr != -1)
+                        {
+                            snake.move(0, -1);
+                            pr = 1;
+                        }
+                        else
+                        {
+                            Console.WriteLine("WRONG DIRECTION");
+                            Console.ReadKey();
+                        }
+                     }
+             
+                     if (prkey.Key == ConsoleKey.DownArrow )
                     {
-                        snake.move(0, 1);
+                        if (pr != 1)
+                        {
+                            snake.move(0, 1);
+                            pr = -1;
+                        }
+                        else
+                        {
+                            Console.WriteLine("WRONG DIRECTION");
+                            Console.ReadKey();
+                        }
                     }
                     if (prkey.Key == ConsoleKey.RightArrow)
                     {
-                        snake.move(1, 0);
+                        if (pr != -2)
+                        {
+                            snake.move(1, 0);
+                            pr = 2;
+                        }
+                        else
+                        {
+                            Console.WriteLine("WRONG DIRECTION");
+                            Console.ReadKey();
+                        }
                     }
                     if (prkey.Key == ConsoleKey.LeftArrow)
                     {
-                        snake.move(-1, 0);
+                        if (pr != 2)
+                        {
+                            snake.move(-1, 0);
+                            pr = -2;
+                        }
+                        else
+                        {
+                            Console.WriteLine("WRONG DIRECTION");
+                            Console.ReadKey();
+                        }
                     }
+              
                     if (prkey.Key == ConsoleKey.Escape)
                         break;
 
-                    if (snake.CanEat(food))
+
+                    foreach (point k in wall.body)
+                    {
+                        if (k.x == snake.body[0].x && k.y == snake.body[0].y)
+                        {
+
+                            Console.Clear();
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine("Game over!!!");
+                            while (true)
+                            {
+                                Console.ReadKey();
+                            }
+                        }
+                    }
+
+                if (snake.CanEat(food))
                     {
                         food = new food();
                         f++;
@@ -55,24 +112,6 @@ namespace snake2
                 {
                     wall.sr = new StreamReader(@"wall2.txt");
                 }
-
-                StreamReader sr = new StreamReader(@"wall1.txt");
-                int n = int.Parse(sr.ReadLine());
-                for (int i = 0; i < n; i++)
-                {
-                    string s = sr.ReadLine();
-
-                    for (int j = 0; j < s.Length; j++)
-                    {
-                        if (j == snake.body[0].x && i == snake.body[0].y)
-                        {
-                            Console.WriteLine("GAME OVER!!!!!");
-                            Console.Clear();
-                            break;
-                        }
-                    }
-                }
-                sr.Close();
 
 
             }

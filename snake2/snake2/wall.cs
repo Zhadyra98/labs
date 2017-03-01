@@ -11,7 +11,7 @@ namespace snake2
     class wall
     {
         public char sign = '+';
-        List<point> body;
+        public List<point> body;
         public ConsoleColor color;
         public point w;
         public StreamReader sr;
@@ -38,11 +38,9 @@ namespace snake2
         
         public void draw()
         {
-
             Console.ForegroundColor = color;
             foreach (point p in body)
-            {
-                
+            {  
                 Console.SetCursorPosition(p.x, p.y);
                 Console.WriteLine(sign);
             }
