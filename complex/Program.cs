@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Serialization;
+using System.IO;
 namespace complex
 {
-    class Complex
+
+    public class Complex
     {
         public int a;//to keep up value
         public int b;//to keep down value
@@ -17,7 +19,7 @@ namespace complex
             this.b = b;
         }
 
-        public static void crt(int a1, int b1)
+        public static int crt(int a1, int b1)
         {
 
             //to make complex number simple
@@ -27,11 +29,7 @@ namespace complex
                 {
                     if (a1 % d == 0 && b1 % d == 0)//checks wheter number is divsible to bath values
                     {
-                        int nod = d;//prisvoit' znachenie
-                        a1 = a1 / nod;//make it smaller by dividing the largest divisible number
-                        b1 = b1 / nod;
-
-                        break;// we do not need to go down as we already found the largest didvisible
+                        return d;
                     }
                 }
             }
@@ -40,14 +38,10 @@ namespace complex
                 {
                     if (a1 % d == 0 && b1 % d == 0)
                     {
-                        int nod = d;
-                        a1 = a1 / nod;
-                        b1 = b1 / nod;
-
-                        break;
+                        return d;
                     }
                 }
-            Console.WriteLine(a1 + "/" + b1);
+            return 1;
             
         }
         public static Complex operator +(Complex c1, Complex c2)//if the operator is +
@@ -55,8 +49,11 @@ namespace complex
             Complex c3 = new Complex(0, 0);//new complex with parameters a and b 
             c3.a = c1.a * c2.b + c2.a * c1.b;//how the up value calculated
             c3.b = c1.b * c2.b;//how the down value calculated
+            int d = crt(c3.a, c3.b);
+            c3.a /= d;
+            c3.b /= d;
+            return c3;
             
-            crt(c3.a, c3.b);
             
         }
         public static Complex operator -(Complex c1, Complex c2)
@@ -64,7 +61,9 @@ namespace complex
             Complex c4 = new Complex(0, 0);
             c4.a = c1.a * c2.b - c2.a * c1.b;
             c4.b = c1.b * c2.b;
-            crt(c4.a, c4.b);
+            int d = crt(c4.a, c4.b);
+            c4.a /= d;
+            c4.b /= d;
             return c4;
         }
         public static Complex operator *(Complex c1, Complex c2)
@@ -72,7 +71,9 @@ namespace complex
             Complex c5 = new Complex(0, 0);
             c5.a = c1.a * c2.a;
             c5.b = c1.b * c2.b;
-            crt(c5.a, c5.b);
+            int d = crt(c5.a, c5.b);
+            c5.a /= d;
+            c5.b /= d;
             return c5;
         }
         public static Complex operator /(Complex c1, Complex c2)
@@ -83,25 +84,65 @@ namespace complex
             c2.a = k;
             c6.a = c1.a * c2.a;
             c6.b = c1.b * c2.b;
-            crt(c6.a, c6.b);
+            int d = crt(c6.a, c6.b);
+            c6.a /= d;
+            c6.b /= d;
             return c6;
         }
+        /*public override string ToString()
+        {
+            return this.a + "/" + this.b;
+        }*/
     }
     class Program
     {
         static void Main(string[] args)
         {
 
-            Complex c1 = new Complex(3, 2);//first complex number to work with
-            Complex c2 = new Complex(5, 1);
+            Complex c1 = new Complex(4, 2);//first complex number to work with
+            Complex c2 = new Complex(5, 6);
             Complex c3 = c1 + c2;// 4 basic operations
             Complex c4 = c1 - c2;
             Complex c5 = c1 * c2;
             Complex c6 = c1 / c2;
-            Console.WriteLine("number1+number2="+c3.a + "/" + c3.b);//print the outputs
-            Console.WriteLine("number1-number2=" + c4.a + "/" + c4.b);
-            Console.WriteLine("number1*number2="+c5.a + "/" + c5.b);
-            Console.WriteLine("number1/number2="+c6.a + "/" + c6.b);
+
+            /*FileStream f1 = new FileStream("1.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            XmlSerializer x1 = new XmlSerializer(typeof(Complex));
+           
+            x1.Serialize(f1, c3);
+            f1.Close();*/
+
+            XmlSerializer x2 = new XmlSerializer(typeof(Complex));
+            FileStream f2 = new FileStream("2.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            x2.Serialize(f2, c4);
+            f2.Close();
+
+            XmlSerializer x3 = new XmlSerializer(typeof(Complex));
+            FileStream f3 = new FileStream("3.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            x3.Serialize(f3, c5);
+            f3.Close();
+
+            XmlSerializer x4 = new XmlSerializer(typeof(Complex));
+            FileStream f4 = new FileStream("4.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            x4.Serialize(f4, c6);
+            f4.Close();
+
+
+            Complex c10 = new Complex(0,0);
+            FileStream fr = new FileStream("1.xml", FileMode.Open, FileAccess.Read);
+            c10 = x2.Deserialize(fr) as Complex;
+
+            Console.WriteLine(c10);
+            fr.Close();
+
+
+            /*
+            Console.WriteLine(c3);
+            Console.WriteLine(c4);
+            Console.WriteLine(c5);
+            Console.WriteLine(c6);
+            */
+
             Console.ReadKey();
         }
     }
