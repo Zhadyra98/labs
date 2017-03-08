@@ -7,26 +7,26 @@ using System.IO;
 
 namespace snake2
 {
-    class Program
+   class Program
     {
         static void Main(string[] args)
         {
             snake snake = new snake();
             wall wall = new wall();
             food food = new food();
+            
             int pr = 0;
             int f = 0;
-            
-
+            int l = 0;
+        
             while (true)
             {
                     Console.Clear();
                     snake.draw();
-                    wall.draw();
                     food.draw();
-                
-
-                ConsoleKeyInfo prkey = Console.ReadKey();
+                    wall.load(l);
+                //Console.WriteLine(f + " ");
+                     ConsoleKeyInfo prkey = Console.ReadKey();
 
                     if (prkey.Key == ConsoleKey.UpArrow)
                     {
@@ -85,36 +85,36 @@ namespace snake2
                     if (prkey.Key == ConsoleKey.Escape)
                         break;
 
-
-                    foreach (point k in wall.body)
-                    {
+                   foreach (point k in wall.body)
+                       {
                         if (k.x == snake.body[0].x && k.y == snake.body[0].y)
                         {
-
+                            
                             Console.Clear();
                             Console.BackgroundColor = ConsoleColor.Black;
                             Console.ForegroundColor = ConsoleColor.Magenta;
                             Console.WriteLine("Game over!!!");
+
                             while (true)
                             {
                                 Console.ReadKey();
                             }
                         }
                     }
-
                 if (snake.CanEat(food))
-                    {
-                        food = new food();
-                        f++;
-                    }
-
-                if (f == 5)
                 {
-                    wall.sr = new StreamReader(@"wall2.txt");
+                    food = new food();
+                    f++;
+                    Console.WriteLine(l);
                 }
 
 
-            }
-    } }
 
-}
+
+            }
+           // sr.Close();
+    }
+        
+
+        }
+    }

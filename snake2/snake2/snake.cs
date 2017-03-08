@@ -44,6 +44,14 @@ namespace snake2
                 body[0].y = 0;
             if (body[0].y < 1)
                 body[0].y = Console.WindowHeight-2;
+
+            if (body.Count == 2)
+            {
+                Console.Clear();
+                Console.Write("THIS IS WRITE");
+            }
+
+
         }
 
         public void draw()
@@ -56,7 +64,7 @@ namespace snake2
                 
             }
         }
-
+ 
         public bool CanEat(food food)
         {
             if (body[0].Equals(food.plc))
@@ -68,16 +76,5 @@ namespace snake2
             }
             return false;
         }
-
-      /*  public bool crash(wall wall)
-        {
-            if (body[0].Equals(wall.w))
-            {
-                return true;
-            }
-            return false;
-        }
-     */
-
     }
 }
