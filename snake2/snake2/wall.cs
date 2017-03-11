@@ -9,21 +9,17 @@ namespace snake2
    class wall
     {
         public char sign = '+';
-        public List<point> body;
-        public ConsoleColor color;
+        public List<point> body = new List<point>();
+        public ConsoleColor color= ConsoleColor.Yellow;
+        public int lv = 0;
+        public wall() { }
         
-
-        public wall()
+        public wall(int x)
         {
-            body = new List<point>();
-            color = ConsoleColor.Yellow;     
-        }       
-        public void load(int x)
-        {
-            
-            string path = string.Format("Levels/wall{0}.txt", x);
-            StreamReader sr = new StreamReader(path);
-            
+            lv = x ;
+            DirectoryInfo dr = new DirectoryInfo(@"Levels");
+            FileInfo[] f = dr.GetFiles();
+            StreamReader sr = new StreamReader(f[x].FullName);
             int n = int.Parse(sr.ReadLine());
             for (int i = 0; i < n; i++)
             {
@@ -36,17 +32,18 @@ namespace snake2
                 }
             }
             sr.Close();
-
+        }       
+        public void draw()
+        {
             Console.ForegroundColor = color;
             foreach (point p in body)
             {
                 Console.SetCursorPosition(p.x, p.y);
                 Console.WriteLine(sign);
             }
-        }
-        public void draw()
-        {
-            Console.Clear();
+            Console.SetCursorPosition(71, 3);
+            Console.WriteLine("Level:" + lv);
+
         }
         
     }

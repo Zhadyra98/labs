@@ -37,12 +37,12 @@ namespace snake2
         
             if (body[0].x > Console.WindowWidth - 2)
                 body[0].x = 1;
-            if (body[0].x < 1)
+            if (body[0].x < 0)
                 body[0].x = Console.WindowWidth - 2;
 
             if (body[0].y > Console.WindowHeight-2)
                 body[0].y = 0;
-            if (body[0].y < 1)
+            if (body[0].y < 0)
                 body[0].y = Console.WindowHeight-2;
 
             if (body.Count == 2)
@@ -63,8 +63,38 @@ namespace snake2
                 Console.WriteLine(sign);
                 
             }
+            Console.SetCursorPosition(71, 1);
+            Console.WriteLine("Score:" + (body.Count-1));
+       
         }
- 
+        public bool foodsnake(food food)
+        {
+            for(int i= 0; i<body.Count; i++)
+            {
+                if (body[i].Equals(food.plc))
+                {
+                    return true;
+                    break;
+              }
+          
+            }
+            return false;
+        }
+
+        public bool foodwall(wall wall, food food)
+        {
+            for (int i = 0; i < wall.body.Count; i++)
+            {
+                if (wall.body[i].Equals(food.plc))
+                {
+                    return true;
+                    break;
+                }
+
+            }
+            return false;
+        }
+
         public bool CanEat(food food)
         {
             if (body[0].Equals(food.plc))

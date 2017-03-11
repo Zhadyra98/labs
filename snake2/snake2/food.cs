@@ -18,7 +18,12 @@ namespace snake2
             plc = new point(new Random().Next() % 30, new Random().Next()%30);
             color = ConsoleColor.Red;
         }
-        
+       /* public bool foodwall()
+        {
+            
+
+        }
+        */
         public void draw()
         {
             Console.SetCursorPosition(plc.x, plc.y);
