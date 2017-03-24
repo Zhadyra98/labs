@@ -15,15 +15,13 @@ namespace calculator
         double reval = 0;
         string per;
         bool x=false;
-
+        double mem = 0;
         public Form1()
         {
             InitializeComponent();
-
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
         private void number_click(object sender, EventArgs e)
         {
@@ -35,11 +33,9 @@ namespace calculator
             {
                 if (!textBox1.Text.Contains("."))
                     textBox1.Text = textBox1.Text + btn.Text;
-
             }
             else         
             textBox1.Text += btn.Text;
-
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -60,10 +56,6 @@ namespace calculator
             {
                 textBox1.Text = (reval / Double.Parse(textBox1.Text)).ToString();
             }
-            if (per == "1/x")
-            {
-                textBox1.Text = (1 / Double.Parse(textBox1.Text)).ToString();
-            }
             reval = Double.Parse(textBox1.Text);
             operationlabel.Text = "";
         }
@@ -79,7 +71,6 @@ namespace calculator
             textBox1.Text = "0";
             reval = 0;
         }
-
         private void oper_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
@@ -99,13 +90,68 @@ namespace calculator
             }
 
         }
-
-        private void button18_Click(object sender, EventArgs e)
+        private void div_Click(object sender, EventArgs e)
         {
-
+            per = "1/x";
+            textBox1.Text = (1 / Double.Parse(textBox1.Text)).ToString();
+            reval = Double.Parse(textBox1.Text);
+            operationlabel.Text = " ";
+            operationlabel.Text = "1/" + textBox1.Text;
         }
 
+        private void proc_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = (reval * (Double.Parse(textBox1.Text) / 100)).ToString();
+            reval = Double.Parse(textBox1.Text);
+            operationlabel.Text = "";
+        }
 
+        private void sqrt_click(object sender, EventArgs e)
+        {
+            textBox1.Text = Math.Sqrt(double.Parse(textBox1.Text)).ToString();
+            reval = double.Parse(textBox1.Text);
+            operationlabel.Text = "sqrt(" + textBox1.Text + ")";
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            double k = double.Parse(textBox1.Text)*(-1);
+            textBox1.Text = k.ToString();
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            double k = double.Parse(textBox1.Text) /10;
+            textBox1.Text = k.ToString();
+        }
+
+        private void mem_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (btn.Text == "M-")
+            {
+                mem = mem - double.Parse(textBox1.Text);
+            }
+            if (btn.Text == "M+")
+            {
+                mem = mem + double.Parse(textBox1.Text);
+            }
+            if (btn.Text == "MR")
+            {
+                double m = double.Parse(textBox1.Text) + mem;
+                textBox1.Text = m.ToString();
+            }
+            if (btn.Text == "MS")
+            {
+                mem = double.Parse(textBox1.Text);
+                textBox1.Text = "";
+            }
+            if (btn.Text == "MC")
+            {
+                mem = 0;
+                textBox1.Text = "";
+            }
+        }
 
         /* private void button1_Click(object sender, EventArgs e)
          {
